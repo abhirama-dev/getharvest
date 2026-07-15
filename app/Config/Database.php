@@ -194,11 +194,25 @@ class Database extends Config
     {
         parent::__construct();
 
-        // Ensure that we always set the database group to 'tests' if
-        // we are currently running an automated test suite, so that
-        // we don't overwrite live data on accident.
         if (ENVIRONMENT === 'testing') {
             $this->defaultGroup = 'tests';
+        }
+
+        // BACA CONFIG DATABASE DARI VERCEL (JIKA ADA)
+        if (getenv('DB_HOST')) {
+            $this->default['hostname'] = getenv('DB_HOST');
+        }
+        if (getenv('DB_DATABASE')) {
+            $this->default['database'] = getenv('DB_DATABASE');
+        }
+        if (getenv('DB_USERNAME')) {
+            $this->default['username'] = getenv('DB_USERNAME');
+        }
+        if (getenv('DB_PASSWORD')) {
+            $this->default['password'] = getenv('DB_PASSWORD');
+        }
+        if (getenv('DB_PORT')) {
+            $this->default['port'] = getenv('DB_PORT');
         }
     }
 }
