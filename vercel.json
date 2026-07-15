@@ -23,6 +23,6 @@
     }
   ],
   "env": {
-    "CI_ENVIRONMENT": "production"
+    "CI_ENVIRONMENT": "development"
   }
 }
