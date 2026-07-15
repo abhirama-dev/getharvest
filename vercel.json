@@ -6,8 +6,16 @@
   },
   "routes": [
     {
-      "src": "/(css|js|images|assets|fonts)/(.*)",
-      "dest": "/public/$1/$2"
+      "src": "/assets/(.*)",
+      "dest": "/public/assets/$1"
+    },
+    {
+      "src": "/css/(.*)",
+      "dest": "/public/css/$1"
+    },
+    {
+      "src": "/js/(.*)",
+      "dest": "/public/js/$1"
     },
     {
       "src": "/(.*)",
