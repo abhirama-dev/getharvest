@@ -76,6 +76,14 @@ class Paths
      */
     public string $viewDirectory = __DIR__ . '/../Views';
 
+    public function __construct()
+    {
+        // Jika sistem mendeteksi berjalan di server Vercel
+        if (getenv('VERCEL') || isset($_SERVER['VERCEL'])) {
+            $this->writableDirectory = '/tmp';
+        }
+    }
+
     /**
      * ---------------------------------------------------------------
      * ENVIRONMENT DIRECTORY NAME
