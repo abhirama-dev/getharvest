@@ -212,7 +212,8 @@ class Database extends Config
             $this->default['password'] = getenv('DB_PASSWORD');
         }
         if (getenv('DB_PORT')) {
-            $this->default['port'] = getenv('DB_PORT');
+            // Memaksa port menjadi tipe integer agar kompatibel dengan PHP 8+
+            $this->default['port'] = (int) getenv('DB_PORT');
         }
     }
 }
